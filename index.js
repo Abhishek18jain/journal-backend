@@ -8,7 +8,11 @@ const pagesRouter = require("./routes/page");
 const app = express();
 
 // Middlewares
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || "*"
+}));
+
+
 app.use(express.json());
 
 // Routes
